@@ -24,13 +24,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/login',function () {
         return view('admins.auth.login_form');
     })->middleware('redirect_authenticatedAdmin');
-    Route::post('/login','AdminController1@login')->middleware('redirect_authenticatedAdmin');
+    Route::post('/login','AdminController@login')->middleware('redirect_authenticatedAdmin');
     Route::get('/register',function () {
         return view('admins.auth.register_form');
     })->middleware('redirect_nonAuthenticatedAdmin');
-    Route::post('/register','AdminController1@register')->middleware('redirect_nonAuthenticatedAdmin');
-    Route::get('/profile','AdminController1@profile')->middleware('redirect_nonAuthenticatedAdmin');
-    Route::get('/logout','AdminController1@logout');
+    Route::post('/register','AdminController@register')->middleware('redirect_nonAuthenticatedAdmin');
+    Route::get('/profile','AdminController@profile')->middleware('redirect_nonAuthenticatedAdmin');
+    Route::get('/logout','AdminController@logout');
     Route::get('/posts/create','PostController@createForm')->middleware('redirect_nonAuthenticatedAdmin');
     Route::post('/posts/create','PostController@create')->middleware('redirect_nonAuthenticatedAdmin');
     Route::get('/posts/{id}/update','PostController@updateForm')->middleware('redirect_nonAuthenticatedAdmin');
