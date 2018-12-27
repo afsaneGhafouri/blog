@@ -7,7 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController1 extends AuthController
+class AdminController extends AuthController
 {
 
     public function register(RegisterRequest $request)
