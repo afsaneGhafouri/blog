@@ -8,7 +8,7 @@ use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class AdminControllerBkp extends Controller
 {
 
     public function LoginForm()
