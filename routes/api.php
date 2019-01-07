@@ -19,3 +19,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::patch('/posts/{id}/{action}','PostController@vote');
+
+Route::get('/posts','Api\PostController@getPosts');
+
+Route::get('/posts/{id}','Api\PostController@getPost');
+
+Route::post('/posts','Api\PostController@createPost')->middleware('jwt.auth');
+
+
+Route::prefix('auth')->group(function () {
+    Route::post('/login','Api\AuthController@login');
+    Route::post('/register','Api\AuthController@register');
+});

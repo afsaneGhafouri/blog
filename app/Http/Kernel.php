@@ -70,6 +70,7 @@ class Kernel extends HttpKernel
         'redirect_nonAuthenticated' => IsAuthenticate::class,
         'redirect_nonAuthenticatedAdmin' => IsAdminAuthenticate::class,
         'redirect_authenticatedAdmin' => RedirectLoggedinAdmin::class,
+        'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
     ];
 
     /**
