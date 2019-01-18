@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class Handler extends ExceptionHandler
 {
@@ -52,7 +53,11 @@ class Handler extends ExceptionHandler
             return response()->json(['data-not-found'], 404);
         } elseif ($exception instanceof ValidationException && $request->isJson()) {
             return response()->json($exception->errors(), 400);
+        } elseif ($exception instanceof JWTException){
+            return response()->json(['error' => 'could_not_create_token'], 500);
         }
         return parent::render($request, $exception);
     }
+
+
 }

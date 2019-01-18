@@ -28,6 +28,13 @@ Route::post('/posts','Api\PostController@createPost')->middleware('jwt.auth');
 
 
 Route::prefix('auth')->group(function () {
-    Route::post('/login','Api\AuthController@login');
-    Route::post('/register','Api\AuthController@register');
+    Route::post('/login','Api\UserController@login');
+    Route::post('/register','Api\UserController@register');
+    Route::get('/logout','Api\UserController@logout');
+});
+
+Route::prefix('admin')->group(function () {
+    Route::post('/login','Api\AdminController@login');
+    Route::post('/register','Api\AdminController@register');
+    Route::get('/logout','Api\AdminController@logout');
 });

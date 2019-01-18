@@ -11,12 +11,12 @@ Route::get('/statics/{media}', 'StaticController@index')->middleware('check-data
 
 /// auth
 Route::prefix('auth')->group(function () {
-    Route::get('/login','UserController1@loginForm')->middleware('redirect_authenticated');
-    Route::post('/login','UserController1@login')->middleware('redirect_authenticated');
-    Route::get('/register','UserController1@registerForm')->middleware('redirect_authenticated');
-    Route::post('/register','UserController1@register')->middleware('redirect_authenticated');
-    Route::get('/profile','UserController1@profile')->middleware('redirect_nonAuthenticated');
-    Route::get('/logout','UserController1@logout');
+    Route::get('/login','UserController@loginForm')->middleware('redirect_authenticated');
+    Route::post('/login','UserController@login')->middleware('redirect_authenticated');
+    Route::get('/register','UserController@registerForm')->middleware('redirect_authenticated');
+    Route::post('/register','UserController@register')->middleware('redirect_authenticated');
+    Route::get('/profile','UserController@profile')->middleware('redirect_nonAuthenticated');
+    Route::get('/logout','UserController@logout');
 });
 
 ///admin

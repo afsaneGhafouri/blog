@@ -7,7 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends AuthController
+class AdminController extends WebAuthController
 {
 
     public function register(RegisterRequest $request)
